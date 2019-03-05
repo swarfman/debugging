@@ -1,20 +1,24 @@
 function readyFunction(){
 
-	var items = document.getElementsByClassName("list-group-items");
+	var items = document.getElementsByClassName("list-group-item");
+//	console.log(items);
 	for(var i = 0; i<items.length;i++)
-	{
+	{ console.log(items[i]);	
 		items[i].addEventListener("click",function(event) {
-
+			console.log(event.target.childNodes.length);
 			for(var j = 0; j<event.target.childNodes.length;j++)
 			{
-				if(event.target.childNodes.tagname=='SPAN')
+				console.log(event.target.tagName);
+				
+				if(event.target.tagname=='LI')
 				{
-					var num = parseInt(event.target.childNodes[j].innerHTML);
+					let num = parseInt(event.target.childNodes[1].innerHTML);
+					console.log(num);
 					num--;
 					if (num <= 0) {
 						num = '';
 					}
-					if(event.target.childNodes[j].innerHTML!='') event.target.childNodes[j].innerHTML = num;	
+					if(event.target.childNodes[1].innerHTML!='') event.target.childNodes[1].innerHTML = num;	
 				}
 			}
 		});

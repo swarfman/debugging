@@ -22,19 +22,23 @@ function readyFunction(){
 		}
 	];
 	for (var i = 0; i<data.length; i++) {
-		if (data.text) {
-			var newDiv = document.getElementById("#news");
-			newDiv += "<p><button type='button' class='btn btn-default' datahref='"+data.href+"''><span class='glyphicon glyphicon-star'></span> "+data.text+"</button></p>";
-		}
+			if (data[i].href){
+			var newDiv = document.createElement("div");
+			newDiv.innerHTML += "<a class='btn btn-default' href="+data[i].href+"><span class='glyphicon glyphicon-star'></span>"+data[i].text+"</a>";
+			let x = document.getElementById("news").appendChild(newDiv);
+			console.log(x);
+			}
 	}
 
-	var btnsArray = document.getElementsByTagName("button");
-	for(var i = 0; i<btnsArray.length;i++)
-	{
-		btnsArray[i].addEventListener("click",function(event){
-			if (!target.datahref) {
-				document.location = target.datahref;
-			}
-		});
-	}
+	// var btnsArray = document.getElementsByTagName("a");
+	// for(var k = 4; k<btnsArray.length;k++)
+	// {
+	// 	console.log(btnsArray);
+	// 	btnsArray[k].addEventListener("click",function(event){
+	// 		if (btnsArray[k].href) {
+	// 		// 	console.log(btnsArray[k].href);
+	// 			document.location.href = btnsArray[k].href;
+	// 		}
+	// 	});
+	// }
 }
